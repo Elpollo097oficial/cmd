@@ -1,39 +1,76 @@
 @echo off
-title Zona de Descargar / Utilidades
-color 2
+title ZONA DE DESCARGAS / UTILIDADES
+color 0A
+
+:: Menu Principal
 
 :menu
 cls
+echo =====================================================
+echo       ZONA DE DESCARGAS Y UTILIDADES v1.0.0
+echo =====================================================
 echo.
-echo  [93m=====================================================[0m
-echo  [92m      ZONA DE DESCARGAS Y UTILIDADES v1.0[0m
-echo  [93m=====================================================[0m
+echo   [1] Descargas (Discord, WhatsApp, etc.)
+echo   [2] Utilidades (Punto de restauracion, etc.)
+echo   [0] Salir
 echo.
-echo   [1]  Decir "Hola" (Saludo Cordial)
-echo   [4]  Salir del Programa
-echo.
-echo  [93m-----------------------------------------------------[0m
-set /p opt=" > Selecciona una opcion y presiona Enter: "
+set /p opt=" > Selecciona una opcion: "
 
-:: Validacion de entrada para evitar errores si el usuario no pone nada
-if "%opt%"=="1" goto hola
-if "%opt%"=="4" exit
-
-:: Si no es una opcion valida, un pequeño aviso antes de refrescar
-echo.
-echo  [!] Opcion no valida, intenta de nuevo...
-timeout /t 2 >nul
+if "%opt%"=="1" goto Descargas
+if "%opt%"=="2" goto Utilidades
+if "%opt%"=="0" exit /b
 goto menu
 
-:hola
+:: Descargas
+
+:Descargas
 cls
+echo =========================================
+echo           Sistema de Descargas
+echo =========================================
 echo.
-echo  =========================================
-echo           MENSAJE DEL SISTEMA
-echo  =========================================
+echo   [1] Discord
+echo   [2] Youtube
+echo   [0] Volver al menu
 echo.
-echo   ¡Hola! Espero que tengas un gran dia.
+set /p opt=" > Selecciona una opcion: "
+
+if "%opt%"=="1" goto Discord
+if "%opt%"=="2" goto Youtube
+if "%opt%"=="0" goto menu
+goto Descargas
+
+:Discord
+start https://discord.com
+goto menu
+
+:Youtube
+start https://www.youtube.com
+goto menu
+
+:: Utilidades
+
+:Utilidades
+cls
+echo =========================================
+echo           Sistema de Utilidades
+echo =========================================
 echo.
-echo  =========================================
-pause
+echo   [1] Borrar cache basura etc
+echo   [2] Actualizar apps
+echo   [0] Volver al menu
+echo.
+set /p opt=" > Selecciona una opcion: "
+
+if "%opt%"=="1" goto Borrar
+if "%opt%"=="2" goto Actualizar
+if "%opt%"=="0" goto menu
+goto Utilidades
+
+:Borrar
+start https://discord.com
+goto menu
+
+:Actualizar
+start https://www.youtube.com
 goto menu
